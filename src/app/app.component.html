@@ -1,0 +1,21 @@
+<mat-toolbar color="light">
+  <span [routerLink]="['']">Hermes</span>
+
+  <button mat-button *ngFor="let page of appPages" [routerLink]="page.url">{{ page.title }}</button>
+
+  <span class="spacer"></span>
+  <ng-container *ngIf="user$ | async as user">
+    <button mat-button [matMenuTriggerFor]="menu">
+      {{ user.displayName }}
+      <mat-icon>expand_more</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sair</span>
+      </button>
+    </mat-menu>
+  </ng-container>
+  <button mat-button (click)="login()" *ngIf="!(user$ | async)">Login</button>
+</mat-toolbar>
+<router-outlet></router-outlet>
