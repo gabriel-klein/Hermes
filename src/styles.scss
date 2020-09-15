@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
+/**
+ * Variáveis CSS
+ */
+
+:root {
+  --background-hermes: linear-gradient(232.37deg, #F3ECBF 11.05%, #ECBE6D 90.67%), #FFFFFF;
+}
+
+/**
+ * Estilos CSS
+ */
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -8,11 +8,11 @@ const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['']);
 const redirectLoggedInToGame = () => redirectLoggedInTo(['/game']);
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'test',
-  //   // pathMatch: 'full',
-  // },
+  {
+    path: '',
+    redirectTo: 'introducao',
+    pathMatch: 'full',
+  },
   {
     path: 'introducao',
     loadChildren: () => import('./modules/introducao/introducao-routing.module').then((m) => m.IntroducaoRoutingModule),

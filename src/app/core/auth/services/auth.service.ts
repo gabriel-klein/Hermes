@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   logout(): Observable<void> {
-    return from(this.fireAuth.signOut()).pipe(tap(() => this.router.navigate(['/introducao'])));
+    return from(this.fireAuth.signOut()).pipe(tap(() => this.router.navigate(['introducao'])));
   }
 
   /**

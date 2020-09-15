@@ -1,0 +1,38 @@
+mat-card {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-left: 1.5rem !important;
+  background: none;
+
+  mat-card-title {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  mat-card-header {
+    img {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  mat-card-content {
+    margin-bottom: 0 !important;
+  }
+}
+
+.userArea {
+  background-image: url('/assets/hermes.svg');
+  background-repeat: no-repeat;
+
+  &.logged {
+    background-position: 20vw center;
+    background-size: 35vh;
+
+  }
+
+  &.anonymous {
+    background-position: 35vw center;
+    background-size: 20vh;
+  }
+}

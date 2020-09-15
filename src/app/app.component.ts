@@ -14,6 +14,10 @@ export class AppComponent implements OnInit {
       title: 'Introdução',
       url: '/introducao',
     },
+    // {
+    //   title: 'Regras',
+    //   url: '/regras',
+    // },
   ];
 
   user$: Observable<firebase.User>;
@@ -29,6 +33,6 @@ export class AppComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.logout();
+    this.authService.logout().subscribe();
   }
 }

@@ -1,0 +1,47 @@
+<div gdAreas="user | pages" gdColumns="60vw" gdRows="auto auto">
+  <div
+    class="mat-elevation-z3 userArea"
+    gdArea="user"
+    gdGridAlign="space-evenly stretch"
+    [ngClass]="user ? 'logged' : 'anonymous'"
+  >
+    <ng-container *ngIf="user">
+      <mat-card>
+        <mat-card-header>
+          <img mat-card-avatar class="mat-elevation-z3" [src]="user.photoURL" />
+        </mat-card-header>
+        <mat-card-content>
+          <mat-card-title>{{ user.displayName }}</mat-card-title>
+          <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-actions fxLayout="column" fxLayoutAlign="space-around end">
+          <button mat-button class="mat-elevation-z1" (click)="logout.emit()">
+            <mat-icon>exit_to_app</mat-icon>
+            Sair
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+
+    <div *ngIf="!user">
+      <mat-card>
+        <mat-card-content>
+          <mat-card-title>Entrar no Site</mat-card-title>
+        </mat-card-content>
+        <mat-card-actions fxLayout="column" fxLayoutAlign="space-around end">
+          <button mat-button class="mat-elevation-z1" (click)="login.emit()">
+            <mat-icon>login</mat-icon>
+            Entrar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <!-- <button mat-button class="mat-elevation-z1" (click)="login.emit()">Login</button> -->
+    </div>
+  </div>
+
+  <div gdArea="pages" fxLayout="column">
+    <button mat-button fxFlex="1 1 auto" *ngFor="let page of appPages" [routerLink]="page.url">
+      {{ page.title }}
+    </button>
+  </div>
+</div>
