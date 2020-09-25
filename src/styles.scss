@@ -6,11 +6,12 @@
 
 :root {
   --background-hermes: linear-gradient(232.37deg, #F3ECBF 11.05%, #ECBE6D 90.67%), #FFFFFF;
+  --branco-principal: #F5F5F7;
 }
 
 /**
  * Estilos CSS
  */
 
-html, body { height: 100%; }
+html, body { height: 100%; width: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

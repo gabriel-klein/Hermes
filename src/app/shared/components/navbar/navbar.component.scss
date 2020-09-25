@@ -1,9 +1,65 @@
 mat-toolbar {
+  //border: 0.1px solid #A7A0D3;
   box-sizing: border-box;
+  z-index: 2;
+  position: relative;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-  background: var(--background-hermes);
+  background: var(--branco-principal);
+  height: 85px; //bastou adicionar isso
+  /* Rectangle 8 */
 
-  img {
-    height: 40px;
+
+  .botao {
+    /* Rectangle 16 */
+
+    //position: absolute;
+    //width: 100px;
+    //height: 33px;
+    left: -30px;
+    //top: 22px;
+    font-family: Rufina;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.333333px;
+
+    background: #F3E7B5;
+    border-radius: 30px;
+  }
+
+  .botao2{
+    /* Rectangle 17 */
+    /*position: absolute;
+    width: 170px;
+    height: 33px;
+    left: 1098px;
+    top: 44px;*/
+
+    background: #C1A872;
+    border-radius: 30px;
+
+  }
+
+  .botao3{
+    /* Main Menu */
+    left: 40px;
+
+    font-family: Roboto;
+    font-style: italic;
+    //font-weight: 500;
+    font-size: 15px;
+    //line-height: 28px;
+    //display: flex;
+    //align-items: center;
+    //text-align: center;
+    //letter-spacing: -0.333333px;
+
+    /* Preto Principal */
+    //color: #1D1D1F;
+
   }
 }

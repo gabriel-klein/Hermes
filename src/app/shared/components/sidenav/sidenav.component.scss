@@ -11,28 +11,43 @@ mat-card {
   
   mat-card-header {
     img {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+      /*margin-top: 100rem;
+      margin-bottom: 100rem;
+      transform: rotateY(180deg);*/
     }
   }
 
   mat-card-content {
     margin-bottom: 0 !important;
   }
+
+  mat-card-actions{
+    button{
+      background: var(--background-hermes) !important;
+    }
+  }
 }
 
+.botao4{
+    background: #f7f0d2 !important;
+    margin: 1px;
+  }
+
+
 .userArea {
-  background-image: url('/assets/hermes.svg');
   background-repeat: no-repeat;
 
   &.logged {
+    background-image: url('/assets/hermes.svg');
     background-position: 20vw center;
     background-size: 35vh;
 
   }
 
   &.anonymous {
-    background-position: 35vw center;
-    background-size: 20vh;
+    background-image: url('/assets/hermes(invertido).svg');
+    background-position: -5vw -2vw; 
+    background-size: 50vh;
   }
+
 }

@@ -1,27 +1,14 @@
-<mat-toolbar
-  color="light"
-  class="mat-elevation-z2"
-  fxLayout="row"
-  fxLayoutAlign.gt-xs="space-around center"
-  fxLayoutGap.gt-xs="5vw"
-  fxLayoutAlign.xs="space-between center"
->
-  <button mat-icon-button fxHide.gt-xs (click)="toogleSideNav.emit()">
+<mat-toolbar color="light" class="mat-elevation-z2" fxLayout="row" fxLayoutAlign.gt-xs="space-around center"
+  fxLayoutGap.gt-xs="5vw" fxLayoutAlign.xs="space-between center">
+  <button class="botao2" mat-icon-button fxHide.gt-xs (click)="toogleSideNav.emit()">
     <mat-icon>menu</mat-icon>
   </button>
 
-  <img
-    [routerLink]="['']"
-    fxFlex.xs="1 1 auto"
-    style="text-align: center"
-    fxFlexOffset.xs="-40px"
-    src="/assets/logo.svg"
-    [ngStyle.gt-xs]="{ height: '45.7px' }"
-    [ngStyle.xs]="{ height: '40px' }"
-  />
+  <img [routerLink]="['']" fxFlex.xs="1 1 auto" fxFlexOffset.xs="-40px"
+    src="/assets/logo.svg" [ngStyle.gt-xs]="{ left: '50px', height: '52px', position: 'relative' }" [ngStyle.xs]="{ height: '45px' }" />
 
   <div fxHide.xs fxFlex.gt-xs="1 1 auto">
-    <button mat-button *ngFor="let page of appPages" [routerLink]="page.url">
+    <button mat-button class="botao3" *ngFor="let page of appPages" [routerLink]="page.url">
       {{ page.title }}
     </button>
   </div>
@@ -40,6 +27,6 @@
       </mat-menu>
     </ng-container>
 
-    <button mat-button (click)="login.emit()" *ngIf="!user">Login</button>
+    <button class="botao" mat-button (click)="login.emit()" *ngIf="!user">Login</button>
   </div>
 </mat-toolbar>

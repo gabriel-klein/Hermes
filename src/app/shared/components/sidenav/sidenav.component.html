@@ -1,10 +1,6 @@
-<div gdAreas="user | pages" gdColumns="60vw" gdRows="auto auto">
-  <div
-    class="mat-elevation-z3 userArea"
-    gdArea="user"
-    gdGridAlign="space-evenly stretch"
-    [ngClass]="user ? 'logged' : 'anonymous'"
-  >
+<div class="sidenav" gdAreas="user | pages" gdColumns="60vw" gdRows="auto auto">
+  <div class="mat-elevation-z3 userArea" gdArea="user" gdGridAlign="space-evenly stretch"
+    [ngClass]="user ? 'logged' : 'anonymous'">
     <ng-container *ngIf="user">
       <mat-card>
         <mat-card-header>
@@ -40,8 +36,23 @@
   </div>
 
   <div gdArea="pages" fxLayout="column">
-    <button mat-button fxFlex="1 1 auto" *ngFor="let page of appPages" [routerLink]="page.url">
+    <button mat-button class="botao4" fxFlex="1 1 auto" *ngFor="let page of appPages" [routerLink]="page.url">
+      {{ page.title }}
+    </button>
+    <button mat-button class="botao4" fxFlex="1 1 auto" *ngFor="let page of appPages" [routerLink]="page.url">
       {{ page.title }}
     </button>
   </div>
+
+  <svg width="335" height="406" viewBox="0 0 335 406" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M335 236.812C333.512 279.757 249.748 89.4981 175.5 186.5C101.251 283.502 108.36 207.002 0.00012207 0V405.999H335V236.812Z" fill="white"/>
+    <path d="M335 236.812C333.512 279.757 249.748 89.4981 175.5 186.5C101.251 283.502 108.36 207.002 0.00012207 0V405.999H335V236.812Z" fill="url(#paint0_linear)"/>
+    <defs>
+      <linearGradient id="paint0_linear" x1="34.6998" y1="49.4267" x2="370.499" y2="263.548" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#F3ECBF"/>
+        <stop offset="1" stop-color="#ECBE6D"/>
+      </linearGradient>
+    </defs>
+  </svg>
+  
 </div>
