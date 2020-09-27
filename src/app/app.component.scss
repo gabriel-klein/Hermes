@@ -1,0 +1,10 @@
+mat-sidenav-content{
+	min-height: calc(100vh - 85px);
+	background-color: #fff !important;
+}
+
+mat-sidenav{
+	background-image: url(/assets/fundo-sidenav.svg);
+	background-repeat: no-repeat;
+	background-position: 0vw 40vw; 
+}

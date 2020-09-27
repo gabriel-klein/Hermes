@@ -9,10 +9,7 @@
   <mat-sidenav #sidenav mode="push">
     <app-sidenav [appPages]="appPages" [user]="user$ | async" (login)="login()" (logout)="logout()"></app-sidenav>
   </mat-sidenav>
-  <mat-sidenav-content
-    [ngStyle.gt-xs]="{ 'min-height': 'calc(100vh - 64px)' }"
-    [ngStyle.xs]="{ 'min-height': 'calc(100vh - 56px)' }"
-  >
+  <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

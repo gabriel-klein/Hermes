@@ -17,13 +17,13 @@ const routes: Routes = [
     path: 'introducao',
     loadChildren: () => import('./modules/introducao/introducao-routing.module').then((m) => m.IntroducaoRoutingModule),
   },
-  // {
-  //   path: 'game',
-  //   loadChildren: ,
-  //   canActivate: [AuthGuard],
-  //   canLoad: [AuthGuard],
-  //   data: { data: { authGuardPipe: redirectUnauthorizedToHome } }
-  // }
+   {
+     path: 'game',
+     loadChildren: () => import('./modules/game/game-routing.module').then((m) => m.GameRoutingModule),
+     canActivate: [AuthGuard],
+     canLoad: [AuthGuard],
+     data: { data: { authGuardPipe: redirectUnauthorizedToHome } }
+   }
 ];
 
 @NgModule({

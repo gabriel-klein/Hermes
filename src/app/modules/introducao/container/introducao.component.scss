@@ -1,8 +1,27 @@
-.fundo{
-  /* Rectangle 18 */
-  width: 100px;
-  height: 100px;
-  background: var(--background-hermes);
-  float: left;
-  shape-outside: circle();
-}
+.my-container{
+	display: flex;
+	min-height: calc(100vh - 85px);
+	flex: auto;
+    background-image: url(/assets/fundo-principal.svg);
+    background-position: 0vw -10vw;
+    //background-size: 35vh;
+    background-repeat: no-repeat;
+
+ }
+
+ .hermes{
+ 	display: flex;
+	min-height: calc(100vh - 85px);
+	flex: auto;
+ 	// position: absolute;
+ 	z-index: -1;
+ 	background-position: -20vw -10vw;
+ 	background-repeat: no-repeat;
+ 	background-size: 900px 900px;
+ 	// width: 800px;
+ 	// height: 800px;
+ 	// transform: rotate(-7deg);
+ 	// bottom: -100px;
+ 	// left: -250px;
+ 	background-image: url(/assets/hermes.png);
+ }
