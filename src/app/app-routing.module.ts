@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
-import { redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '@hermes/core';
-
-const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['']);
-const redirectLoggedInToGame = () => redirectLoggedInTo(['/game']);
 
 const routes: Routes = [
   {
@@ -15,15 +11,14 @@ const routes: Routes = [
   },
   {
     path: 'introducao',
-    loadChildren: () => import('./modules/introducao/introducao-routing.module').then((m) => m.IntroducaoRoutingModule),
+    loadChildren: () => import('./modules/introducao/introducao.module').then((m) => m.IntroducaoModule),
   },
-   {
-     path: 'game',
-     loadChildren: () => import('./modules/game/game-routing.module').then((m) => m.GameRoutingModule),
-     canActivate: [AuthGuard],
-     canLoad: [AuthGuard],
-     data: { data: { authGuardPipe: redirectUnauthorizedToHome } }
-   }
+  {
+    path: 'game',
+    loadChildren: () => import('./modules/game/game.module').then((m) => m.GameModule),
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
 ];
 
 @NgModule({

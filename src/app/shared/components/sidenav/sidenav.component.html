@@ -1,6 +1,10 @@
 <div class="sidenav" gdAreas="user | pages" gdColumns="60vw" gdRows="auto auto">
-  <div class="mat-elevation-z3 userArea" gdArea="user" gdGridAlign="space-evenly stretch"
-    [ngClass]="user ? 'logged' : 'anonymous'">
+  <div
+    class="mat-elevation-z3 userArea"
+    gdArea="user"
+    gdGridAlign="space-evenly stretch"
+    [ngClass]="user ? 'logged' : 'anonymous'"
+  >
     <ng-container *ngIf="user">
       <mat-card>
         <mat-card-header>
@@ -31,12 +35,11 @@
           </button>
         </mat-card-actions>
       </mat-card>
-      <!-- <button mat-button class="mat-elevation-z1" (click)="login.emit()">Login</button> -->
     </div>
   </div>
 
   <div gdArea="pages" fxLayout="column">
-    <button mat-button class="botao4" fxFlex="1 1 auto" *ngFor="let page of appPages" [routerLink]="page.url">
+    <button mat-button class="pagesButton" fxFlex="1 1 auto" *ngFor="let page of appPages" [routerLink]="page.url">
       {{ page.title }}
     </button>
   </div>

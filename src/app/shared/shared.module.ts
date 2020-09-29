@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 
-import { MaterialModule } from '@hermes/shared/material.module';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { NavbarComponent, SidenavComponent } from './components';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [NavbarComponent, SidenavComponent],
