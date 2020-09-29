@@ -24,7 +24,7 @@ export class AuthService {
   /**
    * Retorna as informações do Usuário atual
    */
-  get user(): Observable<User> {
+  get user$(): Observable<User> {
     return this.fireAuth.user;
   }
 }

@@ -14,10 +14,10 @@ export class AppComponent implements OnInit {
       title: 'Introdução',
       url: '/introducao',
     },
-     {
-       title: 'Game',
-       url: '/game',
-     },
+    {
+      title: 'Game',
+      url: '/game',
+    },
   ];
 
   user$: Observable<firebase.User>;
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.user$ = this.authService.user;
+    this.user$ = this.authService.user$;
   }
 
   login(): void {
@@ -35,5 +35,4 @@ export class AppComponent implements OnInit {
   logout(): void {
     this.authService.logout().subscribe();
   }
-
 }

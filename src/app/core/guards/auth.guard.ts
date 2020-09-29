@@ -34,7 +34,7 @@ export class AuthGuard implements CanActivate, CanLoad {
   }
 
   private get isAuthenticatedUser$(): Observable<boolean> {
-    return this.authService.user.pipe(
+    return this.authService.user$.pipe(
       take(1),
       map((authState) => authState && authState.uid && authState.providerData[0].providerId === 'google.com'),
       tap((canLoad) => {
