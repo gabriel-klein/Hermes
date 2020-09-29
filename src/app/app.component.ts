@@ -35,4 +35,5 @@ export class AppComponent implements OnInit {
   logout(): void {
     this.authService.logout().subscribe();
   }
+
 }

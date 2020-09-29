@@ -6,6 +6,6 @@ import { IntroducaoRoutingModule } from './introducao-routing.module';
 
 @NgModule({
   declarations: [IntroducaoComponent],
-  imports: [SharedModule, IntroducaoRoutingModule],
+  imports: [SharedModule,IntroducaoRoutingModule]
 })
 export class IntroducaoModule {}
