@@ -2,13 +2,18 @@
  class="my-container"
  [ngStyle.gt-xs]="{'background-position': '0vw -10vw'}">
 
- 	<img
-    [routerLink]="['']"
-    fxFlex.xs="1 1 auto"
-    fxFlexOffset.xs="-40px"
-    src="/assets/Vector.png"
-    [ngStyle.gt-xs]="{ min-height: calc(100vh - 85px), left: '50px', height: '100%', width: '100%', position: 'relative' }"
-    [ngStyle.xs]="{ height: '45px' }"
-  />
-
-</div>
+		<div fxLayout="row" fxFlex="auto">
+			<div fxLayout="column" fxLayoutAlign="center none" >
+				<div id="titulo"  fxLayoutAlign="center end"
+		 		[ngStyle.xs]="{ 'font-size': '30px' }">
+					Simulação de Transporte
+				</div>
+		  		<div id="texto" fxFlexOffset="30px" fxLayoutAlign="start start" fxFlex="60%"
+		  		 [ngStyle.xs]="{ 'font-size': '14px' }">
+		  			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+		  		</div>
+		  	</div>
+	  		<div class="logoGrande" fxFlex="0%">
+	  	</div>
+	</div>
+  	</div>

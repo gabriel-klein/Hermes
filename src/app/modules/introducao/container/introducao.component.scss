@@ -8,3 +8,48 @@
     background-repeat: no-repeat;
 
  }
+
+ .logoGrande{
+ 	background-image: url(/assets/Vector.svg);
+ 	background-repeat: no-repeat;
+ 	background-size: 200vh;
+ 	position: relative;
+ 	left: 0px;
+ 	min-height: calc(100vh - 500px);
+ 	min-width: calc(63vw);
+ }
+
+ #titulo{
+	// position: absolute;
+	// left: 37%;
+	// top: 10%;
+	//padding-top: 10px;
+	font-family: Roboto;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 75px;
+	letter-spacing: -0.333333px;
+
+	/* Preto Principal */
+	color: #1D1D1F;
+}
+
+#texto{
+	/* */
+
+	// position: absolute;
+	// width: 600px;
+	// height: 252px;
+	// left: 598px;
+	// top: 325px;
+
+	font-weight: 300;
+	font-size: 18px;
+	//line-height: 21px;
+	//display: flex;
+
+	margin-left: 20px;
+	/* Preto Principal */
+	color: #1D1D1F;
+}
