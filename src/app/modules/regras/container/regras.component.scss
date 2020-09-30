@@ -1,0 +1,68 @@
+.my-container{
+	display: flex;
+	min-height: calc(100vh + 370px);
+	flex: auto;
+    background-image: url(/assets/fundo-principal.svg);
+    background-position: -30vw;
+    background-size: 300vh;
+    background-repeat: no-repeat;
+
+ }
+
+ .hermes{
+	min-height: calc(100vh-85px);
+ 	position: absolute;
+ 	z-index: -1;
+ 	background-position: -4vw -11vw;
+ 	background-repeat: no-repeat;
+ 	background-size: 800px 800px;
+ 	//width: 800px;
+ 	// bottom: -100px;
+}
+
+#titulo{
+	// position: absolute;
+	// left: 37%;
+	// top: 10%;
+	//padding-top: 10px;
+	font-family: Roboto;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 50px;
+	line-height: 75px;
+	letter-spacing: -0.333333px;
+
+	/* Preto Principal */
+	color: #1D1D1F;
+}
+
+#texto{
+	/* */
+
+	// position: absolute;
+	// width: 600px;
+	// height: 252px;
+	// left: 598px;
+	// top: 325px;
+
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	//line-height: 21px;
+	//display: flex;
+	align-items: center;
+	letter-spacing: -0.333333px;
+
+	/* Preto Principal */
+	color: #1D1D1F;
+}
+
+#imgEx{
+	background-image: url(/assets/mapaExample.svg);
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-position: 0vw;
+}

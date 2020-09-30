@@ -1,6 +1,14 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list>
+<div
+ class="my-container"
+ [ngStyle.gt-xs]="{'background-position': '0vw -10vw'}">
+
+ 	<img
+    [routerLink]="['']"
+    fxFlex.xs="1 1 auto"
+    fxFlexOffset.xs="-40px"
+    src="/assets/Vector.png"
+    [ngStyle.gt-xs]="{ min-height: calc(100vh - 85px), left: '50px', height: '100%', width: '100%', position: 'relative' }"
+    [ngStyle.xs]="{ height: '45px' }"
+  />
+
+</div>
