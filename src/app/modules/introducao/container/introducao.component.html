@@ -1,19 +1,25 @@
 <div
  class="my-container"
- [ngStyle.gt-xs]="{'background-position': '0vw -10vw'}">
+ [ngStyle.gt-xs]="{'background-position': '0vw -10vw'}"
+ [ngStyle.xs]="{ 'min-height': 'calc(100vh)' }">
 
-		<div fxLayout="row" fxFlex="auto">
-			<div fxLayout="column" fxLayoutAlign="center none" >
+		<div fxLayout="column" fxFlex="auto">
+			<div fxLayout="column" fxFlex="1 1 auto" fxLayoutAlign="center none" >
 				<div id="titulo"  fxLayoutAlign="center end"
-		 		[ngStyle.xs]="{ 'font-size': '30px' }">
+		 		[ngStyle.xs]="{ 'font-size': '15px' }">
 					Simulação de Transporte
 				</div>
 		  		<div id="texto" fxFlexOffset="30px" fxLayoutAlign="start start" fxFlex="60%"
 		  		 [ngStyle.xs]="{ 'font-size': '14px' }">
-		  			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+		  			O jogo se passa no Brasil, onde a imensa competitividade entre as empresas e a constante busca por lucros impulsionou os investimentos em logística. Para que seja possível aumentar o faturamento do mês sem aumentar o preço do produto final os Diretores de Supply Chain tem de traçar com harmonia e eficiência as rotas mais rápidas com o menor custo operacional possível. 
+Peguem suas canetas e mapas! Tracem seus planos! Mas lembrem-se, nem tudo sai como o esperado...
+
 		  		</div>
 		  	</div>
-	  		<div class="logoGrande" fxFlex="0%">
-	  	</div>
-	</div>
-  	</div>
+		</div>
+		<div fxLayout="column" fxFlex="auto">
+	  		<div class="logoGrande" fxFlex="0%"
+	  		[ngStyle.xs]="{ 'background-size': '100vh' }">
+	  		</div>
+		</div>
+</div>
