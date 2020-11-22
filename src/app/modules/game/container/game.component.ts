@@ -19,11 +19,11 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
 
 	const config: Phaser.Types.Core.GameConfig = {
-	  title: "Asteroid",
+	  title: "Hermes",
 	  url: "https://github.com/digitsensitive/phaser3-typescript",
 	  version: "1.0",
-	  width: 800,
-	  height: 600,
+	  width: 1000,
+	  height: 700,
 	  type: Phaser.AUTO,
 	  parent: "game",
 	  scene: [ MainMenu, Game ],

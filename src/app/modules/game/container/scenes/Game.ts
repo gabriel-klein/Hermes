@@ -1,6 +1,8 @@
-import seila from "../assets/Mapa.png";
+import mapa from "./Mapa.png";
 
 export class Game extends Phaser.Scene {
+
+	private startKey: Phaser.Input.Keyboard.Key;
 
 	constructor() {
 	    super({
@@ -8,22 +10,25 @@ export class Game extends Phaser.Scene {
 	    });
   	}
 
+  	init(): void {
+    this.startKey = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.ENTER
+    );
+  }
+
   	preload(): void {
-  		this.load.image("sei", seila);
+  		this.load.image("mapa", mapa);
 	}
 
     create(): void {
 
-    const logo2 = this.add.image(400, 150, "sei");
-
-	this.tweens.add({
-	    targets: logo2,
-	    y: 450,
-	    duration: 2000,
-	    ease: "Power2",
-	    yoyo: true,
-	    loop: -1
-	  	});
+    const Mapa = this.add.image(500, 350, "mapa");
 	}
 
+	update(): void {
+
+		if (this.startKey.isDown) {
+	      this.scene.start('MainMenu');
+	    }
+	}
 }
