@@ -1,4 +1,4 @@
-import mapa from "./Mapa.png";
+import mapa from "../assets/mapa.png";
 
 export class Game extends Phaser.Scene {
 

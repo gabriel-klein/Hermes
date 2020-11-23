@@ -22,16 +22,16 @@ export class GameComponent implements OnInit {
 	  title: "Hermes",
 	  url: "https://github.com/digitsensitive/phaser3-typescript",
 	  version: "1.0",
-	  width: 1000,
+	  width: 1300,
 	  height: 700,
 	  type: Phaser.AUTO,
 	  parent: "game",
 	  scene: [ MainMenu, Game ],
 	  input: {
 	    keyboard: true,
-	    mouse: false,
-	    touch: false,
-	    gamepad: false
+	    mouse: true,
+	    touch: true,
+	    gamepad: true
 	  },
 	  physics: {
 	    default: "arcade",
@@ -39,7 +39,7 @@ export class GameComponent implements OnInit {
 	      debug: false
 	    }
 	  },
-	  backgroundColor: "#353535",
+	  backgroundColor: "#000000",
 	  render: { pixelArt: false, antialias: true }
 	};
 
