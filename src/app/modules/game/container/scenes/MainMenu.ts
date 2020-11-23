@@ -25,7 +25,7 @@ export class MainMenu extends Phaser.Scene {
   		this.load.image("fundo", fundo);
 	}
 
-  create() {
+  create(): void {
 
   		const Mapa = this.add.image(500, 350, "mapa");
   		var colorBlack = new Phaser.Display.Color(0, 0, 0);
@@ -38,14 +38,33 @@ export class MainMenu extends Phaser.Scene {
   		var enter = this.add.text(460,270,"Press Enter",{fontFamily:"Georgia", fontSize:"18px", color:"#b09666"})
   		var record = this.add.text(30,30,"Record: ",{fontFamily:"Georgia", fontSize:"18px", color:"#b09666"})
 
-  		Botao.on('pointerup', function () {
+  		titulo.setInteractive();
+  		record.setInteractive();
 
-        	Botao.alpha = 1;
+    	Botao.on('pointerdown', function (pointer) {
+
+        	this.scene.start("Game");
+    
+    	}, this);
+
+    	titulo.on('pointermove', function() {
+
+    		titulo.setColor("#dbb160");
     	});
 
-  		Botao.on('pointerdown', function () {
+    	titulo.on('pointerout', function() {
 
-        	Botao.alpha = 0.5;
+    		titulo.setColor("#b09666");
+    	});
+
+    	record.on('pointermove', function() {
+
+    		record.setColor("#dbb160");
+    	});
+
+    	record.on('pointerout', function() {
+
+    		record.setColor("#b09666");
     	});
 
   		function functionupdate(){
@@ -60,9 +79,6 @@ export class MainMenu extends Phaser.Scene {
 	  	}
 
 	  	setInterval(functionupdate,600);
-
-	  	// btn = this.add.circle(500, 350, 30, colorBlack.color).setInteractive({ cursor: 'pointer' });
-	  	// btn.alpha = 0.1;
     }
 
     update() {
@@ -71,13 +87,6 @@ export class MainMenu extends Phaser.Scene {
 
 	    	this.scene.start('Game');
 	    }
-
-	    // Botao.on('pointerdown', function () {
-
-     //    	Botao.alpha = 0.5;
-
-     //    	rand = 1;
-    	// });
 
     }
 }

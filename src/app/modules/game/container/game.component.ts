@@ -44,6 +44,7 @@ export class GameComponent implements OnInit {
 	};
 
 	const game = new Phaser.Game(config);
+	var rand;
 
 	// function preload() {
 	//   this.load.image("logo", logoImg);
