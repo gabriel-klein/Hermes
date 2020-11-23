@@ -1,34 +1,29 @@
-import mapa from "../assets/mapa.png";
+import mapa from '../assets/Mapa.png';
 
 export class Game extends Phaser.Scene {
+  private startKey: Phaser.Input.Keyboard.Key;
 
-	private startKey: Phaser.Input.Keyboard.Key;
-
-	constructor() {
-	    super({
-	      key: "Game"
-	    });
-  	}
-
-  	init(): void {
-    this.startKey = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.ENTER
-    );
+  constructor() {
+    super({
+      key: 'Game',
+    });
   }
 
-  	preload(): void {
-  		this.load.image("mapa", mapa);
-	}
+  init(): void {
+    this.startKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
+  }
 
-    create(): void {
+  preload(): void {
+    this.load.image('mapa', mapa);
+  }
 
-    const Mapa = this.add.image(500, 350, "mapa");
-	}
+  create(): void {
+    const Mapa = this.add.image(500, 350, 'mapa');
+  }
 
-	update(): void {
-
-		if (this.startKey.isDown) {
-	      this.scene.start('MainMenu');
-	    }
-	}
+  update(): void {
+    if (this.startKey.isDown) {
+      this.scene.start('MainMenu');
+    }
+  }
 }

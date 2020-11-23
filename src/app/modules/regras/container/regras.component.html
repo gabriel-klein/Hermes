@@ -1,39 +1,69 @@
 <div
-class="hermes"
-[ngStyle.gt-xs]="{ 'left': '-3vw', 'background-image': 'url(/assets/hermes.svg)',
-'width': '50%', 'height': '70%', 'transform': 'rotate(15deg)' }"
-[ngStyle.xs]="{ 'background-image': 'url(/assets/hermes.png)', 'width': '100%', 'height': '100%', 'left': '-45vw', 'top': '-10vw' }">
-</div>
-<div
- class="my-container"
- [ngStyle.gt-xs]="{'background-position': '0vw -30vw'}">
-
-    <div fxLayout="column">
-  		<div id="titulo"  fxFlex="auto" fxLayoutAlign="center center"
-  		 [ngStyle.xs]="{ 'font-size': '30px' }">
-  			Como jogar?
-  		</div>
-  		 <div fxLayout="row" fxLayoutGap="32px" fxFlex="auto">
-  		 	<div id="imgEx" fxFlex="50%" [ngStyle.gt-xs]="{ 'background-position': '0vw' }">
-	  		</div>
-	  		<div id="texto" fxLayoutAlign="center center" fxFlex="40%"
-	  		 [ngStyle.xs]="{ 'font-size': '14px' }">
-	  			O jogo consiste em um desafio logístico relacionado a transporte. Em um mapa, o grupo ou jogador que estará representando uma empresa transportadora, receberá entregas para serem realizadas, e terá que tomar decisões sobre as melhores rotas com as variáveis referentes a custos e tempo. O jogo acontecerá em turnos, aumentando sempre o nível de dificuldade nas decisões das entregas. O jogador iniciará com um número de moedas que terá para gastar para cumprir seus objetivos. Cada entrega terá também um valor de recompensa que será somado ao valor que o jogador possui, assim como as rotas e transportes escolhidos consistirão em diferentes valores de ônus nesse montante.
-
-
-	  		</div>
-	  	</div>
-	  	<div fxLayout="row" fxFlex="auto">
-	  		<div id="texto" fxFlexOffset="30px" fxLayoutAlign="center center" fxFlex="40%"
-	  		 [ngStyle.xs]="{ 'font-size': '14px' }">
-	  			Cada turno terá um tempo definido. Ao fim desse tempo, o jogador irá para o próximo nível, tendo ou não concluído todas as entregas. Ao final de cada turno, o jogo gerará um efeito negativo sobre os jogadores ou sobre o mapa, como alagamento de região, inclusão de novo pedágio, menos ganho de moedas no turno seguinte, etc. Os jogadores terão que decidir se vão  mudar suas rotas com base nesses obstáculos ou se manterão a rota já definida. O jogador que terminar todas as entregas antes do tempo do turno acabar ganhará bônus em moedas. Quanto mais cedo, maior o bônus. Vencerá o jogo aquele jogador com maior número de moedas ao fim do turno. Em caso de empate, vencerá aquele com maior número de entregas. 
-				O jogo também pode ser usado como um simulador para que uma pessoa ou empresa possa definir qual sua melhor opção para determinadas entregas.
-				Neste módulo, o “jogador” poderá previamente preencher os campos como valor de cada modal, valor recebido pela entrega, tempo de cada rota, e utilizar o programa para realizar um teste.
-
-	  		</div>
-	  		<div id="imgEx" fxFlex="50%"
-	  		 [ngStyle]="{ 'background-image': 'url(/assets/mapaExample2.svg)', 'background-position': '5vw', 'background-size': '100% 80%' }">
-	  		</div>
-	  	</div>
-	</div>
+  class="hermes"
+  [ngStyle.gt-xs]="{
+    left: '-3vw',
+    'background-image': 'url(/assets/hermes.svg)',
+    width: '50%',
+    height: '70%',
+    transform: 'rotate(15deg)'
+  }"
+  [ngStyle.xs]="{
+    'background-image': 'url(/assets/hermes.png)',
+    width: '100%',
+    height: '100%',
+    left: '-45vw',
+    top: '-10vw'
+  }"
+></div>
+<div class="my-container" [ngStyle.gt-xs]="{ 'background-position': '0vw -30vw' }">
+  <div fxLayout="column">
+    <h2 id="titulo" fxFlex="auto" fxLayoutAlign="center center" [ngStyle.xs]="{ 'font-size': '30px' }">Como jogar?</h2>
+    <div [fxLayout.gt-xs]="'row'" [fxLayout.xs]="'column'" [fxLayoutGap.gt-xs]="'32px'" fxFlex="auto">
+      <img [fxFlex.gt-xs]="'50%'" src="assets/mapaExample.svg" />
+      <div
+        id="texto"
+        [fxLayoutAlign.gt-xs]="'center center'"
+        [fxFlex.gt-xs]="'40%'"
+        [ngStyle.xs]="{ 'font-size': '1rem', padding: '2rem' }"
+      >
+        O jogo consiste em um desafio logístico relacionado a transporte. Em um mapa, o grupo ou jogador que estará
+        representando uma empresa transportadora, receberá entregas para serem realizadas, e terá que tomar decisões
+        sobre as melhores rotas com as variáveis referentes a custos e tempo. O jogo acontecerá em turnos, aumentando
+        sempre o nível de dificuldade nas decisões das entregas. O jogador iniciará com um número de moedas que terá
+        para gastar para cumprir seus objetivos. Cada entrega terá também um valor de recompensa que será somado ao
+        valor que o jogador possui, assim como as rotas e transportes escolhidos consistirão em diferentes valores de
+        ônus nesse montante.
+      </div>
+    </div>
+    <div
+      [fxLayout.gt-xs]="'row'"
+      [fxLayout.xs]="'column-reverse'"
+      [fxLayoutAlign.gt-xs]="'space-around center'"
+      fxFlex="auto"
+    >
+      <div
+        id="texto"
+        fxFlexOffset="30px"
+        fxLayoutAlign="center center"
+        [fxFlex.gt-xs]="'40%'"
+        [ngStyle.xs]="{ 'font-size': '1rem', padding: '2rem' }"
+      >
+        Cada turno terá um tempo definido. Ao fim desse tempo, o jogador irá para o próximo nível, tendo ou não
+        concluído todas as entregas. Ao final de cada turno, o jogo gerará um efeito negativo sobre os jogadores ou
+        sobre o mapa, como alagamento de região, inclusão de novo pedágio, menos ganho de moedas no turno seguinte, etc.
+        Os jogadores terão que decidir se vão mudar suas rotas com base nesses obstáculos ou se manterão a rota já
+        definida. O jogador que terminar todas as entregas antes do tempo do turno acabar ganhará bônus em moedas.
+        Quanto mais cedo, maior o bônus. Vencerá o jogo aquele jogador com maior número de moedas ao fim do turno. Em
+        caso de empate, vencerá aquele com maior número de entregas. O jogo também pode ser usado como um simulador para
+        que uma pessoa ou empresa possa definir qual sua melhor opção para determinadas entregas. Neste módulo, o
+        “jogador” poderá previamente preencher os campos como valor de cada modal, valor recebido pela entrega, tempo de
+        cada rota, e utilizar o programa para realizar um teste.
+      </div>
+      <img
+        [fxFlex.gt-xs]="'50%'"
+        [ngStyle.xs]="{ 'max-width': '90vw', 'margin-left': '5vw' }"
+        src="/assets/mapaExample2.svg"
+      />
+    </div>
+  </div>
 </div>
