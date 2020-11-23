@@ -43,8 +43,8 @@
     >
       <div
         id="texto"
-        fxFlexOffset="30px"
-        fxLayoutAlign="center center"
+        [fxFlexOffset.gt-xs]="'30px'"
+        [fxLayoutAlign.gt-xs]="'center center'"
         [fxFlex.gt-xs]="'40%'"
         [ngStyle.xs]="{ 'font-size': '1rem', padding: '2rem' }"
       >
