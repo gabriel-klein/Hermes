@@ -25,7 +25,7 @@ export class MainMenu extends Phaser.Scene {
   create(): void {
     const Mapa = this.add.image(500, 350, 'mapa');
     const colorBlack = new Phaser.Display.Color(0, 0, 0);
-    const rect = this.add.rectangle(500, 350, 1300, 700, colorBlack.color);
+    var rect = this.add.rectangle(500, 350, 1300, 700, colorBlack.color);
     rect.alpha = 0.7;
     const Botao = this.add.sprite(500, 350, 'botao').setInteractive({ cursor: 'pointer' });
     Botao.setInteractive();
@@ -37,10 +37,36 @@ export class MainMenu extends Phaser.Scene {
     titulo.setInteractive();
     record.setInteractive();
 
+    function esclarece(){
+      rect.alpha = rect.alpha - 0.1;
+      Botao.alpha = Botao.alpha - 0.1;
+      titulo.alpha = titulo.alpha - 0.1;
+      enter.alpha = enter.alpha - 0.1;
+      record.alpha = record.alpha - 0.1;
+    }
+
+    function delay(delay: number) {
+      return new Promise(r => {
+          setTimeout(r, delay);
+      })
+    }
+
     Botao.on(
       'pointerdown',
       function (pointer) {
-        this.scene.start('Game');
+
+        (async () => { 
+
+        setInterval(esclarece,50);
+
+        await delay(500);
+
+
+        if(rect.alpha == 0)
+        {
+          this.scene.start('Game');
+        }
+        })();
       },
       this
     );
@@ -61,20 +87,40 @@ export class MainMenu extends Phaser.Scene {
       record.setColor('#b09666');
     });
 
-    function functionupdate() {
+    function pisca() {
       if (enter.visible == true) {
         enter.visible = false;
       } else {
         enter.visible = true;
       }
     }
+    this.input.keyboard.on('keydown_ENTER',adeus,this)
 
-    setInterval(functionupdate, 600);
+      function adeus(this){
+
+        (async () => { 
+
+        setInterval(esclarece,50);
+
+        await delay(500);
+
+
+        if(rect.alpha == 0)
+        {
+          this.scene.start('Game');
+        }
+        })();
+
+      }
+
+    setInterval(pisca, 600);
   }
 
-  update() {
-    if (this.startKey.isDown) {
-      this.scene.start('Game');
-    }
+  update(){
+
+    // if(this.startKey.isDown)
+    // {
+    //   this.scene.start('Game');
+    // }
   }
 }
