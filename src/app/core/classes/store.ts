@@ -2,6 +2,9 @@ import { AngularFirestore, CollectionReference, Query } from '@angular/fire/fire
 
 import { from, Observable } from 'rxjs';
 
+export const RANKING_KEY = 'ranking';
+export const PARTIDA_KEY = 'partida';
+
 export class Store {
   constructor(private fireStore: AngularFirestore) {}
 

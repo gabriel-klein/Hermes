@@ -11,7 +11,7 @@ import { Store } from '../classes/store';
 export class StoreService<T extends { id: string }> {
   loading$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private store: Store, @Inject(String) protected key: string) {}
+  constructor(protected store: Store, @Inject(String) protected key: string) {}
 
   getList(): Observable<T[]> {
     this.loading$.next(true);

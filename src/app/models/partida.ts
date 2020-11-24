@@ -1,4 +1,5 @@
 export interface Partida {
+  id: string;
   jogadores: Jogador[];
   modais?: Modal[];
   qtdRodadas: number;

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import * as Phaser from 'phaser';
+import { Observable } from 'rxjs';
+
+import { GameService } from '../game.service';
 import { Game } from './scenes/Game';
 import { MainMenu } from './scenes/MainMenu';
-
-// const logoImg = require('/assets/logo.png');
 
 @Component({
   selector: 'app-game',
@@ -11,9 +13,16 @@ import { MainMenu } from './scenes/MainMenu';
   styleUrls: ['./game.component.scss'],
 })
 export class GameComponent implements OnInit {
-  constructor() {}
+  constructor(private service: GameService) {}
+
+  ranking$: Observable<any>;
 
   ngOnInit(): void {
+    this.initGame();
+    this.ranking$ = this.service.getRanking();
+  }
+
+  private initGame(): void {
     const config: Phaser.Types.Core.GameConfig = {
       title: 'Hermes',
       url: 'https://github.com/digitsensitive/phaser3-typescript',
