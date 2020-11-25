@@ -1,0 +1,9 @@
+<mat-card [ngClass]="'posicao' + ranking.posicao">
+  <mat-card-header>
+    <div>
+      <mat-card-title>{{ ranking.posicao + 1 }} º</mat-card-title>
+      <mat-card-title>{{ ranking.jogador.nome }}</mat-card-title>
+    </div>
+    <span>{{ ranking.pontuacao }}</span>
+  </mat-card-header>
+</mat-card>

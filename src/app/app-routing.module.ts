@@ -25,6 +25,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
   },
+  {
+    path: 'ranking',
+    loadChildren: () => import('./modules/ranking/ranking.module').then((m) => m.RankingModule),
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
 ];
 
 @NgModule({

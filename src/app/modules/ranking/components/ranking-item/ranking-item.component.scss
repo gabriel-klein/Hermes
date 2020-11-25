@@ -1,0 +1,57 @@
+mat-card {
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0.7rem;
+  padding-left: 0;
+  padding-right: 1rem;
+  transform: skewX(-20deg);
+
+  &.posicao0 {
+    background-color: #654d19;
+    color: #fff;
+  }
+
+  &.posicao1 {
+    background-color: #92773c;
+    color: #fff;
+  }
+
+  &.posicao2 {
+    background-color: #b09a6a;
+    color: #fff;
+  }
+
+  mat-card-header {
+    display: flex;
+    flex-direction: row;
+
+    .mat-card-header-text {
+      display: none;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      flex: 1 1 auto;
+
+      mat-card-title {
+        margin: 0;
+
+        &:first-of-type {
+          margin-right: 1rem;
+          flex-shrink: 0;
+        }
+
+        &:last-of-type {
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    span {
+      flex-shrink: 0;
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-left: 0.2rem;
+    }
+  }
+}

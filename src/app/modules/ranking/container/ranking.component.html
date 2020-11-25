@@ -1,0 +1,12 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div
+    class="placar"
+    [fxFlex.gt-xs]="'70%'"
+    [fxFlex.xs]="'95%'"
+    [ngStyle.gt-xs]="{ 'margin-top': '2rem' }"
+    [ngStyle.xs]="{ 'margin-top': '1rem' }"
+  >
+    <h1>Ranking</h1>
+    <app-ranking-item *ngFor="let ranking of rankingList$ | async" [ranking]="ranking"></app-ranking-item>
+  </div>
+</div>

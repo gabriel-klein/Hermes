@@ -14,14 +14,18 @@ export class AppComponent implements OnInit {
       title: 'Introdução',
       url: '/introducao',
     },
-     {
-       title: 'Game',
-       url: '/game',
-     },
-     {
-       title: 'Regras',
-       url: '/regras',
-     },
+    {
+      title: 'Game',
+      url: '/game',
+    },
+    {
+      title: 'Regras',
+      url: '/regras',
+    },
+    {
+      title: 'Ranking',
+      url: '/ranking',
+    },
   ];
 
   user$: Observable<firebase.User>;

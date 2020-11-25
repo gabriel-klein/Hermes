@@ -1,10 +1,13 @@
+import { Injectable } from '@angular/core';
 import { AngularFirestore, CollectionReference, Query } from '@angular/fire/firestore';
 
 import { from, Observable } from 'rxjs';
 
 export const RANKING_KEY = 'ranking';
 export const PARTIDA_KEY = 'partida';
-
+@Injectable({
+  providedIn: 'root',
+})
 export class Store {
   constructor(private fireStore: AngularFirestore) {}
 
@@ -12,8 +15,8 @@ export class Store {
    * Retorna um observável de uma lista
    * @param key Chave da lista
    */
-  getList<T>(key: string, query?: (ref: CollectionReference) => Query): Observable<T[]> {
-    return this.fireStore.collection<T>(key, query ? (ref) => query(ref) : null).valueChanges();
+  getList<T>(key: string, query: (ref: CollectionReference) => Query = null): Observable<T[]> {
+    return this.fireStore.collection<T>(key).valueChanges();
   }
 
   /**
