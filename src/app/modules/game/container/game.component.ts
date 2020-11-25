@@ -4,9 +4,9 @@ import * as Phaser from 'phaser';
 import { Observable } from 'rxjs';
 
 import { GameService } from '../game.service';
+import { Ending } from './scenes/Ending';
 import { Game } from './scenes/Game';
 import { MainMenu } from './scenes/MainMenu';
-import { Ending } from './scenes/Ending';
 
 @Component({
   selector: 'app-game',
@@ -20,7 +20,6 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.initGame();
-    //this.ranking$ = this.service.getRanking();
   }
 
   private initGame(): void {

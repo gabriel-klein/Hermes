@@ -8,6 +8,7 @@ import trem from '../assets/trem.png';
 
 export class Game extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
+  private rodada = 1;
 
   constructor() {
     super({
@@ -17,6 +18,7 @@ export class Game extends Phaser.Scene {
 
   init(): void {
     this.startKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
+    this.rodada = 1;
   }
 
   preload(): void {
@@ -105,6 +107,7 @@ export class Game extends Phaser.Scene {
         apaga3(rota3_pt3);
       });
     rota3_pt1.rotation = 9.9;
+    // rota3_pt1.active = false;
 
     let rota3_pt2 = this.add
       .rectangle(245, 365, 50, 2.8, color3.color)
@@ -140,304 +143,17 @@ export class Game extends Phaser.Scene {
     let a = this.add.text(182, 358, 'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' });
     let ponto_b = this.add.circle(275, 350, 5, color_circ.color);
     let b = this.add.text(272, 343, 'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' });
+
+    btn_pedir.setInteractive({ cursor: 'pointer' }).on('pointerdown', () => {
+      this.rodada = this.rodada + 1;
+      novaRodada(this, this.rodada);
+    });
+
     // rota1_pt1.setInteractive();
 
     // ----------------------------------------------------------------------------------------------------
-    // Rodada 2
-    // var rota4_pt1 = this.add.line(301,515,0,0,119,-15,color1.color);
-    let rota4_pt1 = this.add
-      .rectangle(300, 501, 120, 2.8, color1.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende1(rota4_pt1);
-        acende1(rota4_pt2);
-      })
-      .on('pointerout', () => {
-        apaga1(rota4_pt1);
-        apaga1(rota4_pt2);
-      });
-    rota4_pt1.rotation = 3;
-
-    // var rota4_pt2 = this.add.line(260,555,119,-15,160.04,-106.63,color1.color);
-    let rota4_pt2 = this.add
-      .rectangle(378, 447, 100, 2.7, color1.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende1(rota4_pt1);
-        acende1(rota4_pt2);
-      })
-      .on('pointerout', () => {
-        apaga1(rota4_pt1);
-        apaga1(rota4_pt2);
-      });
-
-    rota4_pt2.rotation = 1.99;
-
-    // var rota5 = this.add.line(316,555,2.5,4.5,161.52,-99.30,color2.color);
-    const rota5 = this.add
-      .rectangle(320, 458, 190, 2.8, color2.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende2(rota5);
-      })
-      .on('pointerout', () => {
-        apaga2(rota5);
-      });
-    rota5.rotation = 2.53;
-
-    // var rota6_pt1 = this.add.line(290,533,0,-3.25,95,-48,color3.color);
-    let rota6_pt1 = this.add
-      .rectangle(290, 485, 105, 2.8, color3.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende3(rota6_pt1);
-        acende3(rota6_pt2);
-        acende3(rota6_pt3);
-      })
-      .on('pointerout', () => {
-        apaga3(rota6_pt2);
-        apaga3(rota6_pt3);
-        apaga3(rota6_pt1);
-      });
-    rota6_pt1.rotation = 2.7;
-
-    // var rota6_pt2 = this.add.line(249,540,95,-48,83,-107,color3.color);
-    let rota6_pt2 = this.add
-      .rectangle(330, 432, 63, 2.8, color3.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende3(rota6_pt1);
-        acende3(rota6_pt2);
-        acende3(rota6_pt3);
-      })
-      .on('pointerout', () => {
-        apaga3(rota6_pt2);
-        apaga3(rota6_pt3);
-        apaga3(rota6_pt1);
-      });
-    rota6_pt2.rotation = 1.36;
-
-    // var rota6_pt3 = this.add.line(280,510,83,-107,157.25,-107.625,color3.color);
-    let rota6_pt3 = this.add
-      .rectangle(359, 400, 74, 2.8, color3.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende3(rota6_pt2);
-        acende3(rota6_pt3);
-        acende3(rota6_pt1);
-      })
-      .on('pointerout', () => {
-        apaga3(rota6_pt2);
-        apaga3(rota6_pt3);
-        apaga3(rota6_pt1);
-      });
-
-    ponto_a = this.add.circle(240, 510, 5, color_circ.color);
-    a = this.add.text(236, 503, 'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' });
-    ponto_b = this.add.circle(400, 400, 5, color_circ.color);
-    b = this.add.text(396, 393, 'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' });
 
     // ----------------------------------------------------------------------------------------------------
-    // Rodada 3
-    // var rota7_pt1 = this.add.line(666,481,0,0,-92,-24,color1.color);
-    let rota7_pt1 = this.add
-      .rectangle(573, 458, 95, 2.8, color1.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende1(rota7_pt1);
-        acende1(rota7_pt2);
-        acende1(rota7_pt3);
-      })
-      .on('pointerout', () => {
-        apaga1(rota7_pt1);
-        apaga1(rota7_pt2);
-        apaga1(rota7_pt3);
-      });
-    rota7_pt1.rotation = 0.25;
-
-    // var rota7_pt2 = this.add.line(623,514,-92,-24,-98,-111,color1.color);
-    let rota7_pt2 = this.add
-      .rectangle(525, 405, 85, 2.8, color1.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende1(rota7_pt1);
-        acende1(rota7_pt2);
-        acende1(rota7_pt3);
-      })
-      .on('pointerout', () => {
-        apaga1(rota7_pt1);
-        apaga1(rota7_pt2);
-        apaga1(rota7_pt3);
-      });
-    rota7_pt2.rotation = 1.5;
-
-    // var rota7_pt3 = this.add.line(650,478,-102.66,-115,-50,-111,color1.color);
-    let rota7_pt3 = this.add
-      .rectangle(545, 364, 49, 2.8, color1.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende1(rota7_pt1);
-        acende1(rota7_pt2);
-        acende1(rota7_pt3);
-      })
-      .on('pointerout', () => {
-        apaga1(rota7_pt1);
-        apaga1(rota7_pt2);
-        apaga1(rota7_pt3);
-      });
-
-    // var rota8_pt1 = this.add.line(625,495,10,-3.09,-21.3,-46.66,color2.color);
-    let rota8_pt1 = this.add
-      .rectangle(605, 447, 50, 2.8, color2.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende2(rota8_pt1);
-        acende2(rota8_pt2);
-        acende2(rota8_pt3);
-        acende2(rota8_pt4);
-        acende2(rota8_pt5);
-      })
-      .on('pointerout', () => {
-        apaga2(rota8_pt1);
-        apaga2(rota8_pt2);
-        apaga2(rota8_pt3);
-        apaga2(rota8_pt4);
-        apaga2(rota8_pt5);
-      });
-    rota8_pt1.rotation = 0.9;
-
-    // var rota8_pt2 = this.add.line(614,485,-21.3,-46.66,-12,-68,color2.color);
-    let rota8_pt2 = this.add
-      .rectangle(593, 417, 22, 2.8, color2.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende2(rota8_pt1);
-        acende2(rota8_pt2);
-        acende2(rota8_pt3);
-        acende2(rota8_pt4);
-        acende2(rota8_pt5);
-      })
-      .on('pointerout', () => {
-        apaga2(rota8_pt1);
-        apaga2(rota8_pt2);
-        apaga2(rota8_pt3);
-        apaga2(rota8_pt4);
-        apaga2(rota8_pt5);
-      });
-    rota8_pt2.rotation = 1.8;
-
-    // var rota8_pt3 = this.add.line(627,475,-12,-68,-48,-69.3,color2.color);
-    let rota8_pt3 = this.add
-      .rectangle(580, 405, 35, 2.8, color2.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende2(rota8_pt1);
-        acende2(rota8_pt2);
-        acende2(rota8_pt3);
-        acende2(rota8_pt4);
-        acende2(rota8_pt5);
-      })
-      .on('pointerout', () => {
-        apaga2(rota8_pt1);
-        apaga2(rota8_pt2);
-        apaga2(rota8_pt3);
-        apaga2(rota8_pt4);
-        apaga2(rota8_pt5);
-      });
-    rota8_pt3.rotation = -0.04;
-
-    // var rota8_pt4 = this.add.line(616,486,-48,-69.3,-33.3,-90.6,color2.color);
-    let rota8_pt4 = this.add
-      .rectangle(570, 395, 27, 2.8, color2.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende2(rota8_pt1);
-        acende2(rota8_pt2);
-        acende2(rota8_pt3);
-        acende2(rota8_pt4);
-        acende2(rota8_pt5);
-      })
-      .on('pointerout', () => {
-        apaga2(rota8_pt1);
-        apaga2(rota8_pt2);
-        apaga2(rota8_pt3);
-        apaga2(rota8_pt4);
-        apaga2(rota8_pt5);
-      });
-    rota8_pt4.rotation = 2.1;
-
-    // var rota8_pt5 = this.add.line(610,487,-33.3,-90.6,-34.6,-113.3,color2.color);
-    let rota8_pt5 = this.add
-      .rectangle(575, 375, 20, 2.8, color2.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende2(rota8_pt1);
-        acende2(rota8_pt2);
-        acende2(rota8_pt3);
-        acende2(rota8_pt4);
-        acende2(rota8_pt5);
-      })
-      .on('pointerout', () => {
-        apaga2(rota8_pt1);
-        apaga2(rota8_pt2);
-        apaga2(rota8_pt3);
-        apaga2(rota8_pt4);
-        apaga2(rota8_pt5);
-      });
-    rota8_pt5.rotation = 1.5;
-
-    // var rota9_pt1 = this.add.line(630,500,-1.27,4.36,16,-64,color3.color);
-    let rota9_pt1 = this.add
-      .rectangle(630, 435, 66, 2.8, color3.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende3(rota9_pt1);
-        acende3(rota9_pt2);
-        acende3(rota9_pt3);
-      })
-      .on('pointerout', () => {
-        apaga3(rota9_pt1);
-        apaga3(rota9_pt2);
-        apaga3(rota9_pt3);
-      });
-    rota9_pt1.rotation = 1.8;
-    // var rota9_pt2 = this.add.line(633,487,16,-64,-8,-100,color3.color);
-    let rota9_pt2 = this.add
-      .rectangle(612, 371, 82, 2.8, color3.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende3(rota9_pt1);
-        acende3(rota9_pt2);
-        acende3(rota9_pt3);
-      })
-      .on('pointerout', () => {
-        apaga3(rota9_pt1);
-        apaga3(rota9_pt2);
-        apaga3(rota9_pt3);
-      });
-    rota9_pt2.rotation = 0.9;
-
-    // var rota9_pt3 = this.add.line(636,490,-8,-100,-36,-137.3,color3.color);
-    // var rota9_pt4 = this.add.line(627,487,-36,-137.3,-46.8,-105.7,color3.color);
-    let rota9_pt3 = this.add
-      .rectangle(580, 352, 28, 2.8, color3.color)
-      .setInteractive({ cursor: 'pointer' })
-      .on('pointermove', () => {
-        acende3(rota9_pt1);
-        acende3(rota9_pt2);
-        acende3(rota9_pt3);
-      })
-      .on('pointerout', () => {
-        apaga3(rota9_pt1);
-        apaga3(rota9_pt2);
-        apaga3(rota9_pt3);
-      });
-    rota9_pt3.rotation = 2;
-
-    ponto_a = this.add.circle(620, 465, 5, color_circ.color);
-    a = this.add.text(616, 458, 'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' });
-    ponto_b = this.add.circle(573, 362, 5, color_circ.color);
-    b = this.add.text(569, 355, 'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' });
 
     // Rodada 4
     // var rota10_pt1 = this.add.line(1080,350,0,0,-641.3,-132,color1.color);
@@ -494,6 +210,121 @@ export class Game extends Phaser.Scene {
       rota.setFillStyle(color3.color);
     }
 
+    function novaRodada(classe, proximaRodada: number): void {
+      switch (proximaRodada) {
+        case 2:
+          // Rodada 2
+          // var rota4_pt1 = this.add.line(301,515,0,0,119,-15,color1.color);
+          rota1_pt1.destroy();
+          rota1_pt2.destroy();
+          rota2.destroy();
+          rota3_pt1.destroy();
+          rota3_pt2.destroy();
+          rota3_pt3.destroy();
+
+          ponto_a.destroy();
+          ponto_b.destroy();
+          a.destroy();
+          b.destroy();
+
+          const rota4_pt1 = classe.add
+            .rectangle(300, 501, 120, 2.8, color1.color)
+            .setInteractive({ cursor: 'pointer' })
+            .on('pointermove', () => {
+              acende1(rota4_pt1);
+              acende1(rota4_pt2);
+            })
+            .on('pointerout', () => {
+              apaga1(rota4_pt1);
+              apaga1(rota4_pt2);
+            });
+          rota4_pt1.rotation = 3;
+
+          // var rota4_pt2 = this.add.line(260,555,119,-15,160.04,-106.63,color1.color);
+          const rota4_pt2 = classe.add
+            .rectangle(378, 447, 100, 2.7, color1.color)
+            .setInteractive({ cursor: 'pointer' })
+            .on('pointermove', () => {
+              acende1(rota4_pt1);
+              acende1(rota4_pt2);
+            })
+            .on('pointerout', () => {
+              apaga1(rota4_pt1);
+              apaga1(rota4_pt2);
+            });
+
+          rota4_pt2.rotation = 1.99;
+
+          // var rota5 = this.add.line(316,555,2.5,4.5,161.52,-99.30,color2.color);
+          const rota5 = classe.add
+            .rectangle(320, 458, 190, 2.8, color2.color)
+            .setInteractive({ cursor: 'pointer' })
+            .on('pointermove', () => {
+              acende2(rota5);
+            })
+            .on('pointerout', () => {
+              apaga2(rota5);
+            });
+          rota5.rotation = 2.53;
+
+          // var rota6_pt1 = this.add.line(290,533,0,-3.25,95,-48,color3.color);
+          const rota6_pt1 = classe.add
+            .rectangle(290, 485, 105, 2.8, color3.color)
+            .setInteractive({ cursor: 'pointer' })
+            .on('pointermove', () => {
+              acende3(rota6_pt1);
+              acende3(rota6_pt2);
+              acende3(rota6_pt3);
+            })
+            .on('pointerout', () => {
+              apaga3(rota6_pt2);
+              apaga3(rota6_pt3);
+              apaga3(rota6_pt1);
+            });
+          rota6_pt1.rotation = 2.7;
+
+          // var rota6_pt2 = this.add.line(249,540,95,-48,83,-107,color3.color);
+          const rota6_pt2 = classe.add
+            .rectangle(330, 432, 63, 2.8, color3.color)
+            .setInteractive({ cursor: 'pointer' })
+            .on('pointermove', () => {
+              acende3(rota6_pt1);
+              acende3(rota6_pt2);
+              acende3(rota6_pt3);
+            })
+            .on('pointerout', () => {
+              apaga3(rota6_pt2);
+              apaga3(rota6_pt3);
+              apaga3(rota6_pt1);
+            });
+          rota6_pt2.rotation = 1.36;
+
+          // var rota6_pt3 = this.add.line(280,510,83,-107,157.25,-107.625,color3.color);
+          const rota6_pt3 = classe.add
+            .rectangle(359, 400, 74, 2.8, color3.color)
+            .setInteractive({ cursor: 'pointer' })
+            .on('pointermove', () => {
+              acende3(rota6_pt2);
+              acende3(rota6_pt3);
+              acende3(rota6_pt1);
+            })
+            .on('pointerout', () => {
+              apaga3(rota6_pt2);
+              apaga3(rota6_pt3);
+              apaga3(rota6_pt1);
+            });
+
+          ponto_a = classe.add.circle(240, 510, 5, color_circ.color);
+          a = classe.add.text(236, 503, 'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' });
+          ponto_b = classe.add.circle(400, 400, 5, color_circ.color);
+          b = classe.add.text(396, 393, 'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' });
+          break;
+        case 3:
+          classe.finalizar();
+          break;
+      }
+    }
+
     // let rotas;
 
     //    var rotasLayer = tile.getObjectLayer("Rotas")['objects'];
@@ -509,9 +340,14 @@ export class Game extends Phaser.Scene {
     // });
   }
 
+  finalizar(): void {
+    this.scene.start('Ending');
+  }
+
   update(): void {
     if (this.startKey.isDown) {
       this.scene.start('Ending');
+      this.rodada = 1;
     }
   }
 }
