@@ -24,80 +24,236 @@ export class Game extends Phaser.Scene {
   create(): void {
     const Mapa = this.add.image(500, 350, 'mapa');
     const tile = this.make.tilemap({ key: "mapaJson" });
-    const color1 = new Phaser.Display.Color(179, 73, 73);
-    const color2 = new Phaser.Display.Color(90, 104, 173);
-    const color3 = new Phaser.Display.Color(232, 232, 151);
-    const color_circ = new Phaser.Display.Color(0,0,0);
+    var color1 = new Phaser.Display.Color(179, 73, 73);
+    var color2 = new Phaser.Display.Color(90, 104, 173);
+    var color3 = new Phaser.Display.Color(232, 232, 151);
+    var color_circ = new Phaser.Display.Color(0,0,0);
 
     //Rodada 1
-    var rota1_pt1 = this.add.line(210,390,-0.9090,-5.3636,44,28,color1.color);
-    var rota1_pt2 = this.add.line(210,397,44,28,87.9204,-21.9166,color1.color);
-    var rota2 = this.add.line(230,380,-0.9090,-5.3636,87.9204,-21.9166,color2.color);
-    var rota3_pt1 = this.add.line(210,380,-0.9090,-5.3636,44.6,20,color3.color);
-    var rota3_pt2 = this.add.line(199,390,44.6,20,67.33,-23.33, color3.color);
-    var rota3_pt3 = this.add.line(199,375,67.33,-26.33,90.29,-18.47,color3.color);
+    var rota1_pt1 = this.add.rectangle(209,384,60,2.7,color1.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende1(rota1_pt1);
+      acende1(rota1_pt2);
+    }).on('pointerout', function () {
+      apaga1(rota1_pt1);
+      apaga1(rota1_pt2);
+    })
+    rota1_pt1.rotation = 10;
+
+    var rota1_pt2 = this.add.rectangle(253,377,60,2.7,color1.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende1(rota1_pt1);
+      acende1(rota1_pt2);
+    }).on('pointerout', function () {
+      apaga1(rota1_pt1);
+      apaga1(rota1_pt2);
+    })
+    rota1_pt2.rotation = 40;
+
+    var rota2 = this.add.rectangle(230,355,85,2.7,color2.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende2(rota2);
+    }).on('pointerout', function () {
+      apaga2(rota2);
+    })
+    rota2.rotation = 6.1;
+
+    var rota3_pt1 = this.add.rectangle(212,378,48,2.7,color3.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende3(rota3_pt1);
+      acende3(rota3_pt2);
+      acende3(rota3_pt3);
+    }).on('pointerout', function () {
+      apaga3(rota3_pt1);
+      apaga3(rota3_pt2);
+      apaga3(rota3_pt3);
+    })
+    rota3_pt1.rotation = 9.9;
+
+    var rota3_pt2 = this.add.rectangle(245,365,50,2.7,color3.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende3(rota3_pt1);
+      acende3(rota3_pt2);
+      acende3(rota3_pt3);
+    }).on('pointerout', function () {
+      apaga3(rota3_pt1);
+      apaga3(rota3_pt2);
+      apaga3(rota3_pt3);
+    })
+    rota3_pt2.rotation = 2.1;
+
+    var rota3_pt3 = this.add.rectangle(266,345,20,2.7,color3.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende3(rota3_pt1);
+      acende3(rota3_pt2);
+      acende3(rota3_pt3);
+    }).on('pointerout', function () {
+      apaga3(rota3_pt1);
+      apaga3(rota3_pt2);
+      apaga3(rota3_pt3);
+    })
+    rota3_pt3.rotation = 0.3;
+
     var ponto_a = this.add.circle(186,365,5,color_circ.color);
     var a = this.add.text(182,358,'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
     var ponto_b = this.add.circle(275,350,5,color_circ.color);
     var b = this.add.text(272,343,'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
+    //rota1_pt1.setInteractive();
 
     //Rodada 2
-    var rota4_pt1 = this.add.line(301,515,0,0,119,-15,color1.color);
-    var rota4_pt2 = this.add.line(260,555,119,-15,160.04,-106.63,color1.color);
-    var rota5 = this.add.line(316,555,2.5,4.5,161.52,-99.30,color2.color);
-    var rota6_pt1 = this.add.line(290,533,0,-3.25,95,-48,color3.color);
-    var rota6_pt2 = this.add.line(249,540,95,-48,83,-107,color3.color);
-    var rota6_pt3 = this.add.line(280,510,83,-107,157.25,-107.625,color3.color);
+    //var rota4_pt1 = this.add.line(301,515,0,0,119,-15,color1.color);
+    var rota4_pt1 = this.add.rectangle(300,501,120,2.7,color1.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende1(rota4_pt1);
+      acende1(rota4_pt2);
+    }).on('pointerout', function () {
+      apaga1(rota4_pt1);
+      apaga1(rota4_pt2);
+    })
+    rota4_pt1.rotation = 3;
+
+    //var rota4_pt2 = this.add.line(260,555,119,-15,160.04,-106.63,color1.color);
+    var rota4_pt2 = this.add.rectangle(378,447,100,2.7,color1.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende1(rota4_pt1);
+      acende1(rota4_pt2);
+    }).on('pointerout', function () {
+      apaga1(rota4_pt1);
+      apaga1(rota4_pt2);
+    })
+    rota4_pt2.rotation = 1.99;
+
+    //var rota5 = this.add.line(316,555,2.5,4.5,161.52,-99.30,color2.color);
+    var rota5 = this.add.rectangle(320,458,190,2.7,color2.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende2(rota5);
+    }).on('pointerout', function () {
+      apaga2(rota5);
+    })
+    rota5.rotation = 2.53;
+
+    //var rota6_pt1 = this.add.line(290,533,0,-3.25,95,-48,color3.color);
+    var rota6_pt1 = this.add.rectangle(290,485,105,2.7,color3.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende3(rota6_pt1);
+      acende3(rota6_pt2);
+      acende3(rota6_pt3);
+    }).on('pointerout', function () {
+      apaga3(rota6_pt2);
+      apaga3(rota6_pt3);
+      apaga3(rota6_pt1);
+    })
+    rota6_pt1.rotation = 2.7;
+
+    //var rota6_pt2 = this.add.line(249,540,95,-48,83,-107,color3.color);
+    var rota6_pt2 = this.add.rectangle(330,432,63,2.7,color3.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende3(rota6_pt1);
+      acende3(rota6_pt2);
+      acende3(rota6_pt3);
+    }).on('pointerout', function () {
+      apaga3(rota6_pt2);
+      apaga3(rota6_pt3);
+      apaga3(rota6_pt1);
+    })
+    rota6_pt2.rotation = 1.36;
+
+    //var rota6_pt3 = this.add.line(280,510,83,-107,157.25,-107.625,color3.color);
+    var rota6_pt3 = this.add.rectangle(359,400,74,2.7,color3.color).setInteractive({cursor:'pointer'})
+    .on('pointermove', function () {
+      acende3(rota6_pt2);
+      acende3(rota6_pt3);
+      acende3(rota6_pt1);
+    }).on('pointerout', function () {
+      apaga3(rota6_pt2);
+      apaga3(rota6_pt3);
+      apaga3(rota6_pt1);
+    })
+
     var ponto_a = this.add.circle(240,510,5,color_circ.color);
     var a = this.add.text(236,503,'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
     var ponto_b = this.add.circle(400,400,5,color_circ.color);
     var b = this.add.text(396,393,'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
 
     //Rodada 3
-    var rota7_pt1 = this.add.line(666,481,0,0,-92,-24,color1.color);
-    var rota7_pt2 = this.add.line(623,514,-92,-24,-98,-111,color1.color);
-    var rota7_pt3 = this.add.line(650,478,-102.66,-115,-50,-111,color1.color);
-    var rota8_pt1 = this.add.line(625,495,10,-3.09,-21.3,-46.66,color2.color);
-    var rota8_pt2 = this.add.line(614,485,-21.3,-46.66,-12,-68,color2.color);
-    var rota8_pt3 = this.add.line(627,475,-12,-68,-48,-69.3,color2.color);
-    var rota8_pt4 = this.add.line(616,486,-48,-69.3,-33.3,-90.6,color2.color);
-    var rota8_pt5 = this.add.line(610,487,-33.3,-90.6,-34.6,-113.3,color2.color);
-    var rota9_pt1 = this.add.line(630,500,-1.27,4.36,16,-64,color3.color);
-    var rota9_pt2 = this.add.line(633,487,16,-64,-8,-100,color3.color);
-    var rota9_pt3 = this.add.line(636,490,-8,-100,-36,-137.3,color3.color);
-    var rota9_pt4 = this.add.line(627,487,-36,-137.3,-46.8,-105.7,color3.color);
-    var ponto_a = this.add.circle(620,465,5,color_circ.color);
-    var a = this.add.text(616,458,'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
-    var ponto_b = this.add.circle(573,362,5,color_circ.color);
-    var b = this.add.text(569,355,'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
+    // var rota7_pt1 = this.add.line(666,481,0,0,-92,-24,color1.color);
+    // var rota7_pt2 = this.add.line(623,514,-92,-24,-98,-111,color1.color);
+    // var rota7_pt3 = this.add.line(650,478,-102.66,-115,-50,-111,color1.color);
+    // var rota8_pt1 = this.add.line(625,495,10,-3.09,-21.3,-46.66,color2.color);
+    // var rota8_pt2 = this.add.line(614,485,-21.3,-46.66,-12,-68,color2.color);
+    // var rota8_pt3 = this.add.line(627,475,-12,-68,-48,-69.3,color2.color);
+    // var rota8_pt4 = this.add.line(616,486,-48,-69.3,-33.3,-90.6,color2.color);
+    // var rota8_pt5 = this.add.line(610,487,-33.3,-90.6,-34.6,-113.3,color2.color);
+    // var rota9_pt1 = this.add.line(630,500,-1.27,4.36,16,-64,color3.color);
+    // var rota9_pt2 = this.add.line(633,487,16,-64,-8,-100,color3.color);
+    // var rota9_pt3 = this.add.line(636,490,-8,-100,-36,-137.3,color3.color);
+    // var rota9_pt4 = this.add.line(627,487,-36,-137.3,-46.8,-105.7,color3.color);
+    // var ponto_a = this.add.circle(620,465,5,color_circ.color);
+    // var a = this.add.text(616,458,'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
+    // var ponto_b = this.add.circle(573,362,5,color_circ.color);
+    // var b = this.add.text(569,355,'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
 
     //Rodada 4 
-    var rota10_pt1 = this.add.line(1080,350,0,0,-641.3,-132,color1.color);
-    var rota10_pt2 = this.add.line(938,358,-641.3,-132,-282.6,16,color1.color);
-    var rota11_pt1 = this.add.line(900,318,20,-10,-296,-54.6,color2.color);
-    var rota11_pt2 = this.add.line(313,186,-20,10,290,100,color2.color);
-    var rota11_pt3 = this.add.line(854,340,-633,-137,-465,-29,color2.color);
-    var rota11_pt4 = this.add.line(833,308,-442,-29,-268,18,color2.color);
-    var ponto_a = this.add.circle(760,285,5,color_circ.color);
-    var a = this.add.text(756,278,'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
-    var ponto_b = this.add.circle(475,300,5,color_circ.color);
-    var b = this.add.text(471,293,'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
+    // var rota10_pt1 = this.add.line(1080,350,0,0,-641.3,-132,color1.color);
+    // var rota10_pt2 = this.add.line(938,358,-641.3,-132,-282.6,16,color1.color);
+    // var rota11_pt1 = this.add.line(900,318,20,-10,-296,-54.6,color2.color);
+    // var rota11_pt2 = this.add.line(313,186,-20,10,290,100,color2.color);
+    // var rota11_pt3 = this.add.line(854,340,-633,-137,-465,-29,color2.color);
+    // var rota11_pt4 = this.add.line(833,308,-442,-29,-268,18,color2.color);
+    // var ponto_a = this.add.circle(760,285,5,color_circ.color);
+    // var a = this.add.text(756,278,'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
+    // var ponto_b = this.add.circle(475,300,5,color_circ.color);
+    // var b = this.add.text(471,293,'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
 
     //Rodada 5 
-    var rota12_pt1 = this.add.line(482,566,-4,0,68,-30,color1.color);
-    var rota12_pt2 = this.add.line(447,576,68,-30,64,-81,color1.color);
-    var rota12_pt3 = this.add.line(466,565,64,-81,21,-109,color1.color);
-    var rota13_pt1 = this.add.line(450,557,5,2,30,-18,color2.color);
-    var rota13_pt2 = this.add.line(448,557,30,-18,52,1,color2.color);
-    var rota13_pt3 = this.add.line(440,569,52,1,58,-45,color2.color);
-    var rota13_pt4 = this.add.line(451,578,58,-45,30,-105,color2.color);
-    var rota14_pt1 = this.add.line(454,605,0,0,22,-108,color3.color);
-    var ponto_a = this.add.circle(443,547,5,color_circ.color);
-    var a = this.add.text(439,540,'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
-    var ponto_b = this.add.circle(465,445,5,color_circ.color);
-    var b = this.add.text(461,438,'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
+    // var rota12_pt1 = this.add.line(482,566,-4,0,68,-30,color1.color);
+    // var rota12_pt2 = this.add.line(447,576,68,-30,64,-81,color1.color);
+    // var rota12_pt3 = this.add.line(466,565,64,-81,21,-109,color1.color);
+    // var rota13_pt1 = this.add.line(450,557,5,2,30,-18,color2.color);
+    // var rota13_pt2 = this.add.line(448,557,30,-18,52,1,color2.color);
+    // var rota13_pt3 = this.add.line(440,569,52,1,58,-45,color2.color);
+    // var rota13_pt4 = this.add.line(451,578,58,-45,30,-105,color2.color);
+    // var rota14_pt1 = this.add.line(454,605,0,0,22,-108,color3.color);
+    // var ponto_a = this.add.circle(443,547,5,color_circ.color);
+    // var a = this.add.text(439,540,'A', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
+    // var ponto_b = this.add.circle(465,445,5,color_circ.color);
+    // var b = this.add.text(461,438,'B', { fontFamily: 'Arial', fontSize: '10px', color: '#fff' })
 
 
+    // teste.on('pointermove', function () {
+     	
+    //  	acende1(teste);
+    // });
+
+    function acende1(rota)
+    {
+    	var color = new Phaser.Display.Color(242, 51, 51);
+    	rota.setFillStyle(color.color)
+    }
+    function apaga1(rota)
+    {
+    	rota.setFillStyle(color1.color)
+    }
+
+    function acende2(rota)
+    {
+    	var color = new Phaser.Display.Color(28, 52, 173);
+    	rota.setFillStyle(color.color)
+    }
+    function apaga2(rota)
+    {
+    	rota.setFillStyle(color2.color)
+    }
+
+    function acende3(rota)
+    {
+    	var color = new Phaser.Display.Color(214, 214, 58);
+    	rota.setFillStyle(color.color)
+    }
+    function apaga3(rota)
+    {
+    	rota.setFillStyle(color3.color)
+    }
 
 
     // let rotas;

@@ -19,7 +19,7 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.initGame();
-    this.ranking$ = this.service.getRanking();
+    //this.ranking$ = this.service.getRanking();
   }
 
   private initGame(): void {
