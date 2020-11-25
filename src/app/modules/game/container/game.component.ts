@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RankingService } from '@hermes/modules/ranking/ranking.service';
 
 import * as Phaser from 'phaser';
 import { Observable } from 'rxjs';
@@ -14,7 +15,7 @@ import { MainMenu } from './scenes/MainMenu';
   styleUrls: ['./game.component.scss'],
 })
 export class GameComponent implements OnInit {
-  constructor(private service: GameService) {}
+  constructor(private service: GameService, private rankingService: RankingService) {}
 
   ranking$: Observable<any>;
 
@@ -50,6 +51,8 @@ export class GameComponent implements OnInit {
 
     const game = new Phaser.Game(config);
     let rand;
+
+    game.registry.set('rankingService', this.rankingService);
 
     // function preload() {
     //   this.load.image("logo", logoImg);

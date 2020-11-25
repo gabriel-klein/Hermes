@@ -1,4 +1,7 @@
+import { take } from 'rxjs/operators';
+
 import { RankingService } from '@hermes/modules/ranking/ranking.service';
+
 import fundo from '../assets/fundo_laranja.png';
 import miniFundo from '../assets/mini_fundo.png';
 import mininiFundo from '../assets/mini_mini_fundo.png';
@@ -7,8 +10,9 @@ import porta from '../assets/porta.png';
 
 export class Ending extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
+  private rankingService: RankingService;
 
-  constructor(private rankingSErvice: RankingService) {
+  constructor() {
     super({
       key: 'Ending',
     });
@@ -16,6 +20,7 @@ export class Ending extends Phaser.Scene {
 
   init(): void {
     this.startKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
+    this.rankingService = this.registry.get('rankingService');
   }
 
   preload(): void {
@@ -47,11 +52,16 @@ export class Ending extends Phaser.Scene {
       fontSize: '18px',
       color: '#000',
     });
+
     const values = Math.ceil(Math.random() * 1000);
 
-    this.rankingSErvice.setRanking(values);
+    this.rankingService.setRanking(values).pipe(take(1)).subscribe();
 
-    const pontos = this.add.text(545, 340, '500 - Pontos', { fontFamily: 'Georgia', fontSize: '15px', color: '#000' });
+    const pontos = this.add.text(545, 340, `${values} - Pontos`, {
+      fontFamily: 'Georgia',
+      fontSize: '15px',
+      color: '#000',
+    });
 
     function delay(delay: number) {
       return new Promise((r) => {
