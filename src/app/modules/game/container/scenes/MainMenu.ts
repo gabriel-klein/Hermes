@@ -1,4 +1,3 @@
-import fundo from '../assets/fundo_cinza.png';
 import mapa from '../assets/Mapa.png';
 import button from '../assets/play-button.svg';
 
@@ -19,7 +18,6 @@ export class MainMenu extends Phaser.Scene {
   preload(): void {
     this.load.image('botao', button);
     this.load.image('mapa', mapa);
-    this.load.image('fundo', fundo);
   }
 
   create(): void {
@@ -52,24 +50,7 @@ export class MainMenu extends Phaser.Scene {
     }
 
     Botao.on(
-      'pointerdown',
-      function (pointer) {
-
-        (async () => { 
-
-        setInterval(esclarece,50);
-
-        await delay(500);
-
-
-        if(rect.alpha == 0)
-        {
-          this.scene.start('Game');
-        }
-        })();
-      },
-      this
-    );
+      'pointerdown',adeus,this);
 
     titulo.on('pointermove', function () {
       titulo.setColor('#dbb160');
@@ -118,9 +99,9 @@ export class MainMenu extends Phaser.Scene {
 
   update(){
 
-    if(this.startKey.isDown)
-    {
-      this.scene.start('Game');
-    }
+    // if(this.startKey.isDown)
+    // {
+    //   this.scene.start('Game');
+    // }
   }
 }
