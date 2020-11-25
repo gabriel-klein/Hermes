@@ -25,7 +25,7 @@ export class MainMenu extends Phaser.Scene {
   create(): void {
     const Mapa = this.add.image(500, 350, 'mapa');
     const colorBlack = new Phaser.Display.Color(0, 0, 0);
-    var rect = this.add.rectangle(500, 350, 1300, 700, colorBlack.color);
+    var rect = this.add.rectangle(500, 350, 1650, 700, colorBlack.color);
     rect.alpha = 0.7;
     const Botao = this.add.sprite(500, 350, 'botao').setInteractive({ cursor: 'pointer' });
     Botao.setInteractive();
@@ -118,9 +118,9 @@ export class MainMenu extends Phaser.Scene {
 
   update(){
 
-    // if(this.startKey.isDown)
-    // {
-    //   this.scene.start('Game');
-    // }
+    if(this.startKey.isDown)
+    {
+      this.scene.start('Game');
+    }
   }
 }

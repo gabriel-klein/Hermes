@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { GameService } from '../game.service';
 import { Game } from './scenes/Game';
 import { MainMenu } from './scenes/MainMenu';
+import { Ending } from './scenes/Ending';
 
 @Component({
   selector: 'app-game',
@@ -31,7 +32,7 @@ export class GameComponent implements OnInit {
       height: 700,
       type: Phaser.AUTO,
       parent: 'game',
-      scene: [MainMenu, Game],
+      scene: [MainMenu, Game, Ending],
       input: {
         keyboard: true,
         mouse: true,
@@ -44,7 +45,7 @@ export class GameComponent implements OnInit {
           debug: false,
         },
       },
-      backgroundColor: '#000000',
+      backgroundColor: '#d1d099',
       render: { pixelArt: false, antialias: true },
     };
 
